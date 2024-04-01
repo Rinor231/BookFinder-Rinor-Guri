@@ -1,0 +1,29 @@
+<input type="text" [(ngModel)]="query" placeholder="Search..." />
+<button (click)="searchBooks()">Search</button>
+
+<div class="card-container">
+  <div *ngFor="let book of books" class="card">
+    <div class="card-content">
+      <img *ngIf="book.volumeInfo.imageLinks" [src]="book.volumeInfo.imageLinks.thumbnail" alt="Book Cover">
+      <h5 class="card-title">{{ book.volumeInfo.title }}</h5>
+      <button (click)="showDetails(book)">Details</button>
+    </div>
+  </div>
+</div>
+
+<div id="myModal" class="modal" *ngIf="selectedBook">
+  <div class="modal-content">
+    <span class="close-button" (click)="closeModal()">&times;</span>
+    <div class="modal-image">
+      <img *ngIf="selectedBook.volumeInfo.imageLinks" [src]="selectedBook.volumeInfo.imageLinks.thumbnail"
+        alt="Book cover">
+    </div>
+    <div class="modal-details">
+      <h2>{{ selectedBook.volumeInfo.title }}</h2>
+      <p><strong>Publication Date:</strong> {{ selectedBook.volumeInfo.publishedDate }}</p>
+      <p><strong>Publisher:</strong> {{ selectedBook.volumeInfo.publisher }}</p>
+      <p><strong>ISBN:</strong> {{ getISBN(selectedBook.volumeInfo.industryIdentifiers) }}</p>
+      <p><strong>Summary:</strong> {{ selectedBook.volumeInfo.description }}</p>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+
+.navbar {
+  background-color: #343a40;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input[type="text"] {
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+
+.search-container button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.container {
+  margin-top: 20px;
+}
+.card-content button {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+body {
+  margin: 0% ;
+}
