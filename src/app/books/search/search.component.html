@@ -1,4 +1,4 @@
-<input type="text" [(ngModel)]="query" placeholder="Search..." />
+<input type="text" [(ngModel)]="query" placeholder="Search a book" />
 <button (click)="searchBooks()">Search</button>
 
 <div class="card-container">
@@ -20,7 +20,7 @@
     </div>
     <div class="modal-details">
       <h2>{{ selectedBook.volumeInfo.title }}</h2>
-      <p><strong>Publication Date:</strong> {{ selectedBook.volumeInfo.publishedDate }}</p>
+      <p><strong>Publication Date:</strong> {{ selectedBook.volumeInfo.publicationDate }}</p>
       <p><strong>Publisher:</strong> {{ selectedBook.volumeInfo.publisher }}</p>
       <p><strong>ISBN:</strong> {{ getISBN(selectedBook.volumeInfo.industryIdentifiers) }}</p>
       <p><strong>Summary:</strong> {{ selectedBook.volumeInfo.description }}</p>

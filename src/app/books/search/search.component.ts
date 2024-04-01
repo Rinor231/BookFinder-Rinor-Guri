@@ -18,7 +18,7 @@ export class SearchComponent {
   searchBooks(): void {
       if (this.query.trim() !== '') {
       this.bookService.searchBooks(this.query).subscribe(data => {
-        this.bookDataService.updateBooks(data.items); // Update books array using shared service
+        this.bookDataService.updateBooks(data.items);
       });
     }
   }
@@ -27,7 +27,7 @@ export class SearchComponent {
     this.bookService.getBookDetails(book.id).subscribe(
       (details: Book) => {
         this.selectedBook = details;
-        console.log('Selected Book:', this.selectedBook); // Log the selected book details
+        console.log('Selected Book:', this.selectedBook);
         this.openModal();
       },
       error => {

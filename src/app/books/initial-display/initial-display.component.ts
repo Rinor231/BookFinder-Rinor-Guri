@@ -16,23 +16,17 @@ export class InitialDisplayComponent implements OnInit {
   constructor(private bookService: BookService, private bookDataService:BookDataService) { }
 
     ngOnInit(): void {
-    // Subscribe to changes in the books array using the BookDataService
     this.bookDataService.books$.subscribe(books => {
-      // Check if there are search results available
       if (books.length === 0) {
-        // If no search results available, fetch random books
         this.fetchRandomBooks();
       } else {
-        // If search results available, use them
         this.books = books;
       }
     });
   }
   fetchRandomBooks(): void {
-    // Generate a random query to fetch random books
     const randomQuery = this.generateRandomQuery();
     this.bookService.searchBooks(randomQuery).subscribe(data => {
-      // Take only the first 12 items to display
       this.books = data.items.slice(0, 12);
     });
   }
@@ -44,9 +38,7 @@ export class InitialDisplayComponent implements OnInit {
   }
 
   searchBooks(query: string): void {
-    // Fetch new books based on the search query
     this.bookService.searchBooks(query).subscribe(data => {
-      // Take only the first 12 items to display
       this.books = data.items.slice(0, 12);
     });
   }
@@ -55,7 +47,7 @@ export class InitialDisplayComponent implements OnInit {
     this.bookService.getBookDetails(book.id).subscribe(
       (details: Book) => {
         this.selectedBook = details;
-        console.log('Selected Book:', this.selectedBook); // Log the selected book details
+        console.log('Selected Book:', this.selectedBook);
         this.openModal();
       },
       error => {
