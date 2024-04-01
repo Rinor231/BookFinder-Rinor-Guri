@@ -75,5 +75,18 @@ export class InitialDisplayComponent implements OnInit {
     return isbnIdentifier ? isbnIdentifier.identifier : '';
   }
 
+   openGoogleBooks(bookId: string): void {
+    window.open(`https://books.google.com/books?id=${bookId}`, '_blank');
+  }
+
+  truncateSummary(summary: string): string {
+    // Truncate the summary text to 100 words
+    const words = summary.split(' ');
+    if (words.length > 100) {
+      return words.slice(0, 100).join(' ') + '...';
+    } else {
+      return summary;
+    }
+  }
 
 }

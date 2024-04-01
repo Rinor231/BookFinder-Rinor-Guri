@@ -10,6 +10,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: gray;
 }
 
 .card-content {
@@ -70,4 +71,8 @@
 
 .modal-details p {
   margin: 5px 0;
+}
+
+.more-details-button{
+  height: 30px;
 }

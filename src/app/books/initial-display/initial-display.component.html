@@ -20,7 +20,7 @@
       <p><strong>Publication Date:</strong> {{ selectedBook.volumeInfo.publicationDate }}</p>
       <p><strong>Publisher:</strong> {{ selectedBook.volumeInfo.publisher }}</p>
       <p><strong>ISBN:</strong> {{ getISBN(selectedBook.volumeInfo.industryIdentifiers) }}</p>
-      <p><strong>Summary:</strong> {{ selectedBook.volumeInfo.description }}</p>
-    </div>
+      <p><strong>Summary:</strong> {{ selectedBook.volumeInfo.description ?truncateSummary(selectedBook.volumeInfo.description) : '' }}</p>
+      <button class="more-details-button" (click)="openGoogleBooks(selectedBook.id)">More Details</button>    </div>
   </div>
 </div>
